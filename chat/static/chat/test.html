@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chat Test</title>
+</head>
+<body>
+  <h3>Chat Test</h3>
+  <input id="room" placeholder="room name" value="lobby"/>
+  <button id="connect">Connect</button>
+  <div id="status"></div>
+  <div id="messages"></div>
+  <input id="msg" placeholder="message" />
+  <button id="send">Send</button>
+
+  <script>
+    let socket;
+    document.getElementById('connect').onclick = () => {
+      const room = document.getElementById('room').value;
+      const ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
+      const url = ws_scheme + '://' + window.location.host + '/ws/chat/' + room + '/';
+      socket = new WebSocket(url);
+
+      socket.onopen = () => { document.getElementById('status').innerText = 'Connected'; };
+      socket.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        const el = document.createElement('div');
+        el.innerText = (data.username ? data.username + ': ' : '') + data.message;
+        document.getElementById('messages').appendChild(el);
+      };
+      socket.onclose = () => { document.getElementById('status').innerText = 'Disconnected'; };
+    };
+
+    document.getElementById('send').onclick = () => {
+      const text = document.getElementById('msg').value;
+      if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify({ message: text }));
+      }
+    };
+  </script>
+</body>
+</html>

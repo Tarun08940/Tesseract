@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'user_management',
+    'channels',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -69,7 +71,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tesseract_core.wsgi.application'
+#WSGI_APPLICATION = 'tesseract_core.wsgi.application'
+
+ASGI_APPLICATION = "tesseract_core.asgi.application"
+
 
 
 # Database
@@ -142,4 +147,14 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
 }

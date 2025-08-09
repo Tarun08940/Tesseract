@@ -34,3 +34,5 @@ urlpatterns = [
      path('api/profile/', UserProfileView.as_view(), name='profile'),
 ]
 
+from chat.views import MessageListView
+path('api/rooms/<str:room_name>/messages/', MessageListView.as_view(), name='room-messages'),
