@@ -1,36 +1,61 @@
+<!-- Banner -->
 ![TESSERACT Banner](assets/banner.png)
 
+<!-- Badges -->
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Django](https://img.shields.io/badge/Django-5.0-green)
+![WebSockets](https://img.shields.io/badge/WebSockets-Enabled-purple)
+![License](https://img.shields.io/badge/License-MIT-orange)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+
 # 🚀 TESSERACT
-
-**Real-Time Team Collaboration Hub** — Where productivity meets speed.
-
-TESSERACT is a cutting-edge collaboration platform combining **chat, project management, and developer-focused tools** into one unified experience. Inspired by the best of Slack, Trello, and GitHub, it’s built to **deliver enterprise-grade performance** while staying sleek, modern, and intuitive.
+**Real-Time Collaboration. Reinvented.**  
+A next-generation team collaboration platform merging the power of **Slack**, **Trello**, and **GitHub** into one seamless experience.
 
 ---
 
 ## ✨ Features
-- ⚡ Real-time messaging with WebSockets & Django Channels
-- 📌 Interactive Kanban boards with live updates
-- 📂 Drag-and-drop file sharing with cloud integration
-- 🔔 Smart notifications (in-app, push, email)
-- 🛠 Developer-friendly code snippets & Git integration
-- 📄 Built-in documentation wiki with Markdown support
+- ⚡ **Real-time Messaging** with WebSockets & Django Channels
+- 📌 **Interactive Kanban Boards** with drag-and-drop tasks
+- 📂 **File Sharing** with cloud integration
+- 🔔 **Smart Notifications** (in-app, push, email)
+- 🛠 **Developer Tools**: Git integration, code snippets, markdown wiki
+- 🔒 **Secure Authentication** with JWT
 
 ---
 
-## 🛠 Tech Stack
-- **Backend:** Django, Django REST Framework, Django Channels, Redis, Celery
-- **Frontend:** React (planned), TailwindCSS (planned)
-- **Database:** PostgreSQL
-- **Deployment:** Docker, Nginx, CI/CD Pipeline
+## 🖥️ Tech Stack
+| Backend | Frontend | Database | Deployment |
+|---------|----------|----------|------------|
+| Django, Django REST Framework, Django Channels | React (planned), Tailwind CSS | PostgreSQL | Docker, Nginx, CI/CD |
 
 ---
 
-## 📌 Status
-![Status](https://img.shields.io/badge/status-in%20development-yellow)
-![Django](https://img.shields.io/badge/Django-4.x-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
+## 📷 Screenshots
+| Login | Dashboard | Kanban |
+|-------|-----------|--------|
+| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) | ![Kanban](screenshots/kanban.png) |
 
 ---
 
-💡 _TESSERACT is currently in active development. Stay tuned for major updates._
+## 🚀 Getting Started
+```bash
+# Clone the repo
+git clone https://github.com/YOUR_USERNAME/Tesseract.git
+
+# Go to project folder
+cd Tesseract
+
+# Create virtual environment
+python -m venv venv
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # Mac/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Start development server
+python manage.py runserver
