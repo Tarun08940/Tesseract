@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tesseract Chat</title>
+</head>
+<body>
+    <h1>Welcome to Tesseract Chat</h1>
+
+    <!-- Send message form -->
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="Type your message..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+
+    <!-- Message list -->
+    {% if messages %}
+        <ul>
+            {% for msg in messages %}
+                <li>
+                    <strong>{{ msg.user.username }}:</strong> {{ msg.content }}
+                    <em>({{ msg.timestamp|date:"H:i:s" }})</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages yet.</p>
+    {% endif %}
+</body>
+</html>
